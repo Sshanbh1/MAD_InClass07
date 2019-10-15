@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+<EditText
+    android:id="@+id/et_search"
+    android:layout_width="347dp"
+    android:layout_height="47dp"
+    android:layout_marginStart="33dp"
+    android:layout_marginTop="19dp"
+    android:layout_marginEnd="31dp"
+    android:ems="10"
+    android:inputType="textPersonName"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+    android:id="@+id/tv_display"
+    android:layout_width="149dp"
+    android:layout_height="28dp"
+    android:layout_marginStart="37dp"
+    android:layout_marginTop="34dp"
+    android:layout_marginEnd="27dp"
+    android:text="@string/tv_display"
+    app:layout_constraintEnd_toStartOf="@+id/sb_limit"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/et_search" />
+
+    <SeekBar
+    android:id="@+id/sb_limit"
+    android:layout_width="181dp"
+    android:layout_height="29dp"
+    android:layout_marginStart="27dp"
+    android:layout_marginTop="35dp"
+    android:layout_marginEnd="17dp"
+    android:max="25"
+    android:min="5"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/tv_display"
+    app:layout_constraintTop_toBottomOf="@+id/et_search" />
+
+    <Button
+    android:id="@+id/bt_search"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="158dp"
+    android:layout_marginTop="28dp"
+    android:layout_marginEnd="165dp"
+    android:text="@string/search"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/sb_limit" />
+
+    <TextView
+    android:id="@+id/tv_searchby"
+    android:layout_width="87dp"
+    android:layout_height="30dp"
+    android:layout_marginStart="73dp"
+    android:layout_marginTop="22dp"
+    android:layout_marginEnd="251dp"
+    android:text="@string/sortby"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/bt_search" />
+
+    <RadioGroup
+    android:id="@+id/rg_rating"
+    android:layout_width="157dp"
+    android:layout_height="77dp"
+    android:layout_marginStart="26dp"
+    android:layout_marginTop="25dp"
+    android:layout_marginEnd="68dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/tv_searchby"
+    app:layout_constraintTop_toBottomOf="@+id/bt_search">
+
+    <RadioButton
+        android:id="@+id/rb_rating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="@string/trackrating" />
+
+    <RadioButton
+        android:id="@+id/rb_artistrating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/artistrating" />
+    </RadioGroup>
+
+    <TextView
+    android:id="@+id/tv_searchresults"
+    android:layout_width="159dp"
+    android:layout_height="22dp"
+    android:layout_marginStart="143dp"
+    android:layout_marginTop="18dp"
+    android:layout_marginEnd="109dp"
+    android:text="@string/Searchresults"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/rg_rating" />
+
+    <ListView
+    android:id="@+id/lv_searchresults"
+    android:layout_width="407dp"
+    android:layout_height="365dp"
+    android:layout_marginStart="4dp"
+    android:layout_marginTop="18dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/tv_searchresults" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

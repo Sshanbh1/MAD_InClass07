@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">InClass07</string>
+    <string name="tv_display">Limit:</string>
+    <string name="search">Search</string>
+    <string name="sortby">Sort By</string>
+    <string name="trackrating">Track Rating</string>
+    <string name="artistrating">Artist Rating</string>
+    <string name="Searchresults">Search Results</string>
+</resources>
