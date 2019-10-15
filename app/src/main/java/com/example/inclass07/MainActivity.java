@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -37,6 +38,8 @@ public class MainActivity extends AppCompatActivity implements GetTrackAsyncTask
     RadioButton rb_rating;
     RadioButton rb_artistrating;
 
+    ProgressBar pb_loading;
+
     ListView lv_searchresults;
 
     TextView tv_display;
@@ -50,6 +53,9 @@ public class MainActivity extends AppCompatActivity implements GetTrackAsyncTask
         setContentView(R.layout.activity_main);
 
         setTitle("MusixMatch Track Search");
+
+        pb_loading.findViewById(R.id.pb_loading);
+        pb_loading.setVisibility(View.GONE);
 
         tv_display = findViewById(R.id.tv_display);
         bt_search = findViewById(R.id.bt_search);
@@ -84,7 +90,9 @@ public class MainActivity extends AppCompatActivity implements GetTrackAsyncTask
                 // find which radio button is selected
                 if(checkedId == R.id.rb_rating) {
                     radioSelect = 1;
+                    pb_loading.setVisibility(View.VISIBLE);
                     changeContent();
+                    pb_loading.setVisibility(View.GONE);
                 } else if(checkedId == R.id.rb_artistrating) {
                     radioSelect = 2;
                     changeContent();
