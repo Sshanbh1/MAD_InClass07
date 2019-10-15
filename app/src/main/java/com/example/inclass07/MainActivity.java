@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements GetTrackAsyncTask
 
     TextView tv_display;
 
-    int seekbarValue = 1;
+    int seekbarValue = 5;
     int radioSelect = 1; //1 for Track 2 for Artist
 
     @Override
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements GetTrackAsyncTask
 
         setTitle("MusixMatch Track Search");
 
-        pb_loading.findViewById(R.id.pb_loading);
+        pb_loading = findViewById(R.id.pb_loading);
         pb_loading.setVisibility(View.GONE);
 
         tv_display = findViewById(R.id.tv_display);
@@ -95,7 +95,9 @@ public class MainActivity extends AppCompatActivity implements GetTrackAsyncTask
                     pb_loading.setVisibility(View.GONE);
                 } else if(checkedId == R.id.rb_artistrating) {
                     radioSelect = 2;
+                    pb_loading.setVisibility(View.VISIBLE);
                     changeContent();
+                    pb_loading.setVisibility(View.GONE);
                 } else {
                     Toast.makeText(MainActivity.this, "Select a Value", Toast.LENGTH_SHORT).show();
                 }
@@ -112,6 +114,7 @@ public class MainActivity extends AppCompatActivity implements GetTrackAsyncTask
     }
 
     private void changeContent(){
+        pb_loading.setVisibility(View.VISIBLE);
         if(isConnected()) {
             RequestParams requestParams = new RequestParams();
             requestParams.addParameter("q", et_search.getText().toString());
@@ -121,13 +124,13 @@ public class MainActivity extends AppCompatActivity implements GetTrackAsyncTask
             } else {
                 requestParams.addParameter("s_artist_rating", "desc");
             }
-            if(isConnected()) {
-                new GetTrackAsyncTask(requestParams, MainActivity.this).execute("http://api.musixmatch.com/ws/1.1/track.search");
-            } else {
-                Toast.makeText(MainActivity.this, "Please Connect to the Internet", Toast.LENGTH_SHORT).show();
-            }
 
+            new GetTrackAsyncTask(requestParams, MainActivity.this).execute("http://api.musixmatch.com/ws/1.1/track.search");
+
+        } else {
+            Toast.makeText(MainActivity.this, "Please Connect to the Internet", Toast.LENGTH_SHORT).show();
         }
+        pb_loading.setVisibility(View.GONE);
     }
 
     private boolean isConnected(){
