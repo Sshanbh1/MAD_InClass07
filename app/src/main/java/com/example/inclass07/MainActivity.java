@@ -1,5 +1,17 @@
 package com.example.inclass07;
 
+/*
+*
+* Name : Sameer Shanbhag
+* Name : Ravina Gaikawad
+* Groups1 5
+* In Class Assignment 07
+*
+* */
+
+
+
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -8,7 +20,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkCapabilities;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -21,7 +32,6 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
